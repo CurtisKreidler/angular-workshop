@@ -1363,3 +1363,7 @@ body {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+
+#welcome-shadow{
+  text-shadow: 2px 2px #ff0000;
+}
