@@ -3,8 +3,14 @@ import { Component } from '@angular/core';
 
 export class Todo {
   isDone: boolean;
-  // todoList: Todo[];
   itemName: string;
+
+  constructor(
+  isDone: boolean,
+  itemName?: string){
+    this.isDone = isDone;
+    this.itemName = itemName;
+  }
 }
 
 @Component({
@@ -13,26 +19,23 @@ export class Todo {
   <div class="card">
     <h2>TODO: </h2>
     <div *ngFor="let todo of todoList">
-
-      <input type="hidden" name="toggle" [(ngModel)]="todo.toggle">
-          <div>
-              <label>
-                  <input type="checkbox"
-                      [checked]="todo.toggle === toggles[0].value"
-                      (change)="$event.target.checked? (todo.toggle =  toggles[0].value) : (todo.toggle = toggles[1].value)">
-                  {{ toggles[0].display }}
-              </label>
-          </div>
-        {{todo.name}}
+        <div [style.text-decoration]="todo.isDone ? 'line-through' : ''"
+          [style.color] = "todo.isDone ? 'grey' : ''" >
+            <label>
+              <input type="checkbox" [(ngModel)]="todo.isDone">
+              {{ todo.itemName }}
+            </label>
+        </div>
     </div>
       <label>new item: </label>
       <input [(ngModel)]="todo.itemName" placeholder="new item">
+      <button (click) = "newItemToList(todo.itemName, todoList)">add</button>
   </div>`,
   styles: [`
   .card{
     display: flex-box;
     background-color:#fcfbd1;
-    height: 200px;
+    height: 500px;
     width: 200px;
     margin: auto;
     text-align: center;
@@ -40,6 +43,7 @@ export class Todo {
   }
   .done{
     text-decoration: line-through;
+    color: grey;
   }
     `]
 })
@@ -64,9 +68,13 @@ export class AppComponent  {
     {isDone: false, itemName: "study"}
 ];
 
-// newItemToList(item: Todo): Todo[] = {
-//
-// }
+
+newItemToList(name: string, todoList: Todo[]): void {
+    let item = new Todo(false , name);
+    todoList.push(item);
+    console.log(typeof(item));
+    console.log(todoList);
+}
 
 
 }
