@@ -17,9 +17,9 @@ export class Todo {
   selector: 'my-app',
   template: `
   <div class="card">
-    <h2>TODO: </h2>
+    <h2 id="todo-title">Angular 2 TODO-APP: </h2>
     <div *ngFor="let todo of todoList">
-        <div [style.text-decoration]="todo.isDone ? 'line-through' : ''"
+        <div class="task" [style.text-decoration]="todo.isDone ? 'line-through' : ''"
           [style.color] = "todo.isDone ? 'grey' : ''" >
             <label>
               <input type="checkbox" [(ngModel)]="todo.isDone">
@@ -28,28 +28,33 @@ export class Todo {
         </div>
     </div>
     <div class="newTask">
-      <label>new item: </label>
       <input [(ngModel)]="itemName" placeholder="new item">
       <button (click) = "newItemToList(itemName, todoList)">add</button>
     </div>
   </div>`,
   styles: [`
   .card{
-    position: relative;
-    display: flex-box;
     background-color:#fcfbd1;
-    height: 500px;
-    width: 200px;
+    height: 50%;
+    width: 30%;
     margin: auto;
-    text-align: center;
+    padding: 25px 15px;
     box-shadow: 4px 4px #eee;
+  }
+  .task{
+    display: box;
+    padding: 5px 0;
   }
   .done{
     text-decoration: line-through;
     color: grey;
   }
   .newTask{
-    margin-top: 15px;
+    margin-top: 1em;
+  }
+  #todo-title{
+    text-align: center;
+    margin-top: .4em;
   }
     `]
 })
