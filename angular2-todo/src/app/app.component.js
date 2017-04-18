@@ -17,14 +17,6 @@ var Todo = (function () {
 exports.Todo = Todo;
 var AppComponent = (function () {
     function AppComponent() {
-        this.todo = {
-            isDone: false,
-            itemName: "Squaaaaa"
-        };
-        this.toggles = [
-            { value: 'toggled', display: 'Toggled' },
-            { value: 'untoggled', display: 'UnToggled' },
-        ];
         this.todoList = [
             { isDone: false, itemName: "feed the dog" },
             { isDone: false, itemName: "finish workshop" },
@@ -45,8 +37,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  <div class=\"card\">\n    <h2>TODO: </h2>\n    <div *ngFor=\"let todo of todoList\">\n        <div [style.text-decoration]=\"todo.isDone ? 'line-through' : ''\"\n          [style.color] = \"todo.isDone ? 'grey' : ''\" >\n            <label>\n              <input type=\"checkbox\" [(ngModel)]=\"todo.isDone\">\n              {{ todo.itemName }}\n            </label>\n        </div>\n    </div>\n      <label>new item: </label>\n      <input [(ngModel)]=\"todo.itemName\" placeholder=\"new item\">\n      <button (click) = \"newItemToList(todo.itemName, todoList)\">add</button>\n  </div>",
-        styles: ["\n  .card{\n    display: flex-box;\n    background-color:#fcfbd1;\n    height: 500px;\n    width: 200px;\n    margin: auto;\n    text-align: center;\n    box-shadow: 4px 4px #eee;\n  }\n  .done{\n    text-decoration: line-through;\n    color: grey;\n  }\n    "]
+        template: "\n  <div class=\"card\">\n    <h2>TODO: </h2>\n    <div *ngFor=\"let todo of todoList\">\n        <div [style.text-decoration]=\"todo.isDone ? 'line-through' : ''\"\n          [style.color] = \"todo.isDone ? 'grey' : ''\" >\n            <label>\n              <input type=\"checkbox\" [(ngModel)]=\"todo.isDone\">\n              {{ todo.itemName }}\n            </label>\n        </div>\n    </div>\n    <div class=\"newTask\">\n      <label>new item: </label>\n      <input [(ngModel)]=\"itemName\" placeholder=\"new item\">\n      <button (click) = \"newItemToList(itemName, todoList)\">add</button>\n    </div>\n  </div>",
+        styles: ["\n  .card{\n    position: relative;\n    display: flex-box;\n    background-color:#fcfbd1;\n    height: 500px;\n    width: 200px;\n    margin: auto;\n    text-align: center;\n    box-shadow: 4px 4px #eee;\n  }\n  .done{\n    text-decoration: line-through;\n    color: grey;\n  }\n  .newTask{\n    margin-top: 15px;\n  }\n    "]
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

@@ -27,12 +27,15 @@ export class Todo {
             </label>
         </div>
     </div>
+    <div class="newTask">
       <label>new item: </label>
-      <input [(ngModel)]="todo.itemName" placeholder="new item">
-      <button (click) = "newItemToList(todo.itemName, todoList)">add</button>
+      <input [(ngModel)]="itemName" placeholder="new item">
+      <button (click) = "newItemToList(itemName, todoList)">add</button>
+    </div>
   </div>`,
   styles: [`
   .card{
+    position: relative;
     display: flex-box;
     background-color:#fcfbd1;
     height: 500px;
@@ -45,21 +48,15 @@ export class Todo {
     text-decoration: line-through;
     color: grey;
   }
+  .newTask{
+    margin-top: 15px;
+  }
     `]
 })
 export class AppComponent  {
 
-  todo: Todo = {
-    isDone: false,
-    itemName: "Squaaaaa"
-  };
 
-  public toggles = [
-    { value: 'toggled', display: 'Toggled' },
-    { value: 'untoggled', display: 'UnToggled' },
-];
-
-  todoList: Todo[] = [
+todoList: Todo[] = [
     {isDone: false, itemName: "feed the dog"},
     {isDone: false, itemName: "finish workshop"},
     {isDone: false, itemName: "be cool"},
