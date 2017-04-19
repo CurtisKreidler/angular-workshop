@@ -6,39 +6,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-// import { Todo } from './todo'
-var Todo = (function () {
-    function Todo(isDone, itemName) {
-        this.isDone = isDone;
-        this.itemName = itemName;
-    }
-    return Todo;
-}());
-exports.Todo = Todo;
+var todo_1 = require("./todo");
+var task_data_1 = require("./task-data");
 var AppComponent = (function () {
     function AppComponent() {
-        this.todoList = [
-            { isDone: false, itemName: "feed the dog" },
-            { isDone: false, itemName: "finish workshop" },
-            { isDone: false, itemName: "be cool" },
-            { isDone: false, itemName: "ignore finance homework" },
-            { isDone: false, itemName: "buy groceries" },
-            { isDone: false, itemName: "study" }
-        ];
+        this.todoList = task_data_1.TodoList;
     }
+    AppComponent.prototype.numOfTasksTODO = function (todoList) {
+        // numOfTasks;
+        // for(let x in todoList){
+        //   if(x[2] = false){
+        //
+        //   }
+        //
+        // }
+        var num = todoList.length;
+        return num;
+    };
+    AppComponent.prototype.ngOnInit = function () {
+    };
     AppComponent.prototype.newItemToList = function (name, todoList) {
-        var item = new Todo(false, name);
+        var item = new todo_1.Todo(false, name);
         todoList.push(item);
-        console.log(typeof (item));
-        console.log(todoList);
+        // console.log(typeof(item));
+        // console.log(todoList); keep in for clarity
     };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n  <div class=\"card\">\n    <h2 id=\"todo-title\">Angular 2 TODO-APP: </h2>\n    <div *ngFor=\"let todo of todoList\">\n        <div class=\"task\" [style.text-decoration]=\"todo.isDone ? 'line-through' : ''\"\n          [style.color] = \"todo.isDone ? 'grey' : ''\" >\n            <label>\n              <input type=\"checkbox\" [(ngModel)]=\"todo.isDone\">\n              {{ todo.itemName }}\n            </label>\n        </div>\n    </div>\n    <div class=\"newTask\">\n      <input [(ngModel)]=\"itemName\" placeholder=\"new item\">\n      <button (click) = \"newItemToList(itemName, todoList)\">add</button>\n    </div>\n  </div>",
-        styles: ["\n  .card{\n    background-color:#fcfbd1;\n    height: 50%;\n    width: 30%;\n    margin: auto;\n    padding: 25px 15px;\n    box-shadow: 4px 4px #eee;\n  }\n  .task{\n    display: box;\n    padding: 5px 0;\n  }\n  .done{\n    text-decoration: line-through;\n    color: grey;\n  }\n  .newTask{\n    margin-top: 1em;\n  }\n  #todo-title{\n    text-align: center;\n    margin-top: .4em;\n  }\n    "]
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

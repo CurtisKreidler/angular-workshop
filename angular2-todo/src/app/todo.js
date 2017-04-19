@@ -1,6 +1,8 @@
 "use strict";
 var Todo = (function () {
-    function Todo() {
+    function Todo(isDone, itemName) {
+        this.isDone = isDone;
+        this.itemName = itemName;
     }
     return Todo;
 }());
