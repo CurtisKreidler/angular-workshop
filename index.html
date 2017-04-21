@@ -321,17 +321,41 @@
 					</section>
 
 					<section>
-						<p></p>
-						<pre><code class="hljs" data-trim contenteditable>
-						</code></pre>
+						<p>The *ngFor is a built in Angular 2 directive that will loop through your array of data
+						we are using it here to go through the array checking the properties of each todo and changing it's css
+					properties based on the boolean isDone. With those condtional styling tags</p>
+					<p>For each todo in our todoList we are also dispalying its name with the {{}} and assigning it a checkbox that is has two-way data binding</p>
 					</section>
 
 					<section>
-						<p>Angular 2's templating syntax is not too different from Angular 1. This should be a running version that displays
-						your array of tasks</p>
-						<p></p>
+						<p>When the user clicks on the checkbox it updates our model and our view for the component</p>
+					</section>
+
+					<section>
+						<p>Next lets tackle adding addtional portion of the app to app more tasks to our array. For this we are going to need to write a constructor for our Todo class</p>
+						<p>A sytnax for a constructor in Typescript is for our Todo class is:</p>
 						<pre><code class="hljs" data-trim contenteditable>
+						constructor(
+  						isDone: boolean,
+    					itemName?: string){
+    					this.isDone = isDone;
+    					this.itemName = itemName;
+  					}
 						</code></pre>
+						<p>The ? mark means it's an optional field</p>
+					</section>
+
+					<section>
+						<p>After we have written a constructor we need to add a function in the AppComponent that we can call in our
+						Component template</p>
+						<p>The syntax for this in Typescript is: </p>
+						<pre><code class="hljs" data-trim contenteditable>
+						newItemToList(name: string, todoList: Todo[]): void {
+    					let item = new Todo(false , name);
+    					todoList.push(item);
+    					//console.log(typeof(item));
+    					//console.log(todoList);
+						}</code></pre>
 					</section>
 
 					<section>
