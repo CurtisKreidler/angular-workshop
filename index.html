@@ -161,7 +161,7 @@
 
 					<section>
 						<h3>Terminology continued:</h3>
-						<p><strong>Services</strong>: In order to access outside data inside all of your little components Angular 2 uses services this is a way to have persitant data around the app</p>
+						<p><strong>Services</strong>: In order to access outside data inside all of your little components Angular 2 uses services. This is a way to have persitant data around the app</p>
 						<p><strong>Data-binding</strong>: This is similar to Angular 1's data-binding, but differnet in syntax and usage. Data-binding in Angular 2 ins is used heavily to ______ * maybe it's not that different</p>
 					</section>
 
@@ -170,7 +170,7 @@
 					</section>
 
 					<section>
-						<p>That should do it we can get into syntax when building the app</p>
+						<p>That should do it. We can get into syntax when building the app</p>
 					</section>
 
 				</section><!-- Thinking section finished -->
@@ -184,7 +184,7 @@
 
 					<section>
 						<h2>Setup</h2>
-						<p>This app is included in the github repo as well but will require a little more to get running</p>
+						<p>There is a finished todo app and a blank app included in the github repo but will require a little more to get running</p>
 						<pre><code class="hljs" data-trim contenteditable>
 							~$ cd angular2-todo
 							~$ npm install
@@ -193,8 +193,17 @@
 					</section>
 
 					<section>
-						<p>This is going to install all the project dependencies, most of which are angular 2 packages for this project.
-						this makes the project pretty big which is definitely a down side to using Angular</p>
+						<p>These commands are going to install all the project dependencies, most of which are angular 2 packages for this project.
+						this makes the project pretty big which is definitely a down side to using Angular. Then run the app finished app at localhost:4200</p>
+					</section>
+
+					<section>
+						<h4>Lets start with the blank project now</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+							~$ cd angular2-blank
+							~$ npm install
+							~$ npm start
+						</code></pre>
 						<p>This project was generated off the Angular 2 startup seed and includes a lot of packages or testing and syncing the browser with updates to the project as you keep writing it </p>
 						<p>You can use this seed you for your own projects by cloning this repo: <a href="https://github.com/angular/quickstart.git">https://github.com/angular/quickstart.git</a></p>
 					</section>
@@ -205,7 +214,8 @@
 					</section>
 
 					<section>
-						<p>Okay so lets start from scratch with the Angular 2 starter seed already in the repository</p>
+						<p>Okay so lets start making changes to the blank app.
+							All the changes we make will automatically update in the browser.</p>
 						<br>
 						<p>The first place to look in /src then /app directory at the app.component.ts file. This is the file we will be working with primarily today.</p>
 					</section>
@@ -220,13 +230,29 @@
 					</section>
 
 					<section>
-						<p></p>
+						<p>The compents html selector(like directive in angular 1), link to styling, and templating are declared here in this @Component meta tag</p>
 						<pre><code class="hljs" data-trim contenteditable>
 							@Component({
   selector: 'my-app',
   template: `<h1>Hello {{name}}</h1>`,
 })
 						</code></pre>
+						<p>This is more tags that can be added to our Meta tag that I have yet to explore but know that these are not the only ones</p>
+					</section>
+
+					<section>
+						<p>Outside of our Component tag we have a Typescript class that we are exporting so that this piece of view and logic can be acessed a through the app module and displayed on screen.
+							 In this class is where logic for the component is stored and variables for databinding and accessing your model are declared</p>
+						<pre><code class="hljs" data-trim contenteditable>
+	 						export class AppComponent  {
+								name = 'Angular';
+							}
+	 					</code></pre>
+
+					</section>
+						<p></p>
+					<section>
+
 					</section>
 
 				</section><!-- nested section for angular 2 todo app -->
