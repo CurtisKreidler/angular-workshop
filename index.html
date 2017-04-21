@@ -211,7 +211,22 @@
 					</section>
 
 					<section>
+						<p>The AppComponent is the root component by default for the Angular 2 project. Since our project it small we done need to bother making
+						another component and adding it to the root app module, which we'll look out in a bit. </p>
+						<p>At the top of every component that you write you must import component package from the angular core library</p>
+						<pre><code class="hljs" data-trim contenteditable>
+							import { Component } from '@angular/core';
+						</code></pre>
+					</section>
+
+					<section>
 						<p></p>
+						<pre><code class="hljs" data-trim contenteditable>
+							@Component({
+  selector: 'my-app',
+  template: `<h1>Hello {{name}}</h1>`,
+})
+						</code></pre>
 					</section>
 
 				</section><!-- nested section for angular 2 todo app -->
