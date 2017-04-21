@@ -357,14 +357,37 @@
 					</section>
 
 					<section>
-						<p></p>
+						<p>Last thing we need to add it more "ViewModel" to our inline template</p>
+						<p>We are going to add this inside the card div without the backticks(``)</p>
 						<pre><code class="hljs" data-trim contenteditable>
+							`<div class="newTask">
+      					<input [(ngModel)]="itemName" placeholder="new item">
+      					<button (click) = "newItemToList(itemName, todoList)">add</button>
+    					</div>`
 						</code></pre>
 					</section>
 
 					<section>
-						<p></p>
+						<p>This will add an input box at the bottom of the card that will allow users add text that will be pushed to their todoList once
+						they click the add button</p>
+						<p>The (click) is Angular 2's syntax for a onclick listener. We have the onclick here fire the funciton that we added to the AppComponent earlier</p>
+					</section>
+
+					<section>
+						<p>And that should finish the basic Angular2 Todo-App if you kept your project running all changes should have been updated in browser when
+						you saved</p>
+					</section>
+
+					<section>
+						<p>The only other thing to mention is if you add your own modules you need to import and declare them in your app.module.ts file like so:</p>
 						<pre><code class="hljs" data-trim contenteditable>
+							import { NewComponent } from './new.component.ts';
+
+							@NgModule({
+  							imports:      [ BrowserModule, FormsModule ],
+  							declarations: [ AppComponent, NewComponent ],
+  							bootstrap:    [ AppComponent ]
+							})
 						</code></pre>
 					</section>
 
@@ -377,6 +400,13 @@
 					<p>There is a definitely a learning curve with this frameworks and they canvas and they
 					can be quite bulky, but they certainly do simplify some facets of creating a web app</p>
 				</section>
+
+				<section>
+					<h2>Final Thoughts Cont.</h2>
+					<p>Our Apps were very simple and left out a lot of features, as well as, things that are not
+						so easy to do with Angular. We encourge you to dig a little deeper and try some tutorials if your still interested.</p>
+				</section>
+
 				<section>
 					<h2>Digging Deeper Resources</h2>
 					<p>Should you choose to go down the rabbit hole and use Angular 1 or Angular 2, on one
@@ -386,6 +416,8 @@
 							https://angular.io/docs/ts/latest/guide/</a></li>
 						<li>For Typescript Stytax:<a href="https://www.typescriptlang.org/play/index.html">
 							https://www.typescriptlang.org/play/index.html</a></li>
+							<li>Solid Tutorial for Angular 2:<a href="https://angular.io/docs/ts/latest/tutorial/">
+								https://angular.io/docs/ts/latest/tutorial/</a></li>
 					</ul>
 				</section>
 
