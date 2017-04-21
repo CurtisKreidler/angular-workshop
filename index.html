@@ -251,7 +251,99 @@
 					</section>
 
 					<section>
-						<p>first thing that we wanna add is </p>
+						<p>first thing that we wanna add for our TODO app is a Todo class at the top of our app</p>
+						<pre><code class="hljs" data-trim contenteditable>export class Todo {
+  isDone: boolean;
+  itemName: string;
+}</code></pre>
+					</section>
+
+					<section>
+						<p>Next inside of the AppComponent Class we want to create Todo arrary of tasks that we can
+						display when the app launches</p>
+						<p>The syntax for creating and intializing an array in Typescript is:</p>
+						<pre><code class="hljs" data-trim contenteditable>
+							todoList: Todo[] = [
+						{isDone: false, itemName: "item 1"},
+						{isDone: false, itemName: "item 2"},
+						{isDone: false, itemName: "item n"}
+						];</code></pre>
+					</section>
+
+					<section>
+						<p>Next we need to start displaying things to the screen. For this we need to add a template feild to our Component</p>
+						<p>You can create the template in-line using backticks(``)</p>
+						<pre><code class="hljs" data-trim contenteditable>
+							template: `
+  <div class="card">
+    <h2 id="todo-title">Angular 2 TODO-APP: </h2>
+    <div *ngFor="let todo of todoList">
+        <div class="task" [style.text-decoration]="todo.isDone ? 'line-through' : ''"
+          [style.color] = "todo.isDone ? 'grey' : ''" >
+            <label>
+              <input type="checkbox" [(ngModel)]="todo.isDone">
+              {{ todo.itemName }}
+            </label>
+        </div>
+    </div>
+  </div>`,
+						</code></pre>
+					</section>
+
+					<section>
+						<p>Angular 2's templating syntax is not too different from Angular 1. This should be an ugly running version that displays
+						your array of tasks</p>
+						<p>lets add in a styling feild to our component and talk through what's happening in the template so far</p>
+						<pre><code class="hljs" data-trim contenteditable>
+							styles: [`
+  .card{
+    background-color:#fcfbd1;
+    height: 50%;
+    width: 30%;
+    margin: auto;
+    padding: 25px 15px;
+    box-shadow: 4px 4px #eee;
+  }
+  .task{
+    display: box;
+    padding: 5px 0;
+  }
+  .newTask{
+    margin-top: 1em;
+  }
+  #todo-title{
+    text-align: center;
+    margin-top: .4em;
+  }
+    `]
+
+						</code></pre>
+					</section>
+
+					<section>
+						<p></p>
+						<pre><code class="hljs" data-trim contenteditable>
+						</code></pre>
+					</section>
+
+					<section>
+						<p>Angular 2's templating syntax is not too different from Angular 1. This should be a running version that displays
+						your array of tasks</p>
+						<p></p>
+						<pre><code class="hljs" data-trim contenteditable>
+						</code></pre>
+					</section>
+
+					<section>
+						<p></p>
+						<pre><code class="hljs" data-trim contenteditable>
+						</code></pre>
+					</section>
+
+					<section>
+						<p></p>
+						<pre><code class="hljs" data-trim contenteditable>
+						</code></pre>
 					</section>
 
 				</section><!-- nested section for angular 2 todo app -->
